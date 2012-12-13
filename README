@@ -1,0 +1,5 @@
+An example of using pygame. Step by step we first draw a rectangle, move it,
+reflect it at the screen borders and then replace the rectangle with the image
+of a ball.
+
+The commits show the steps in which this example could be teached.
