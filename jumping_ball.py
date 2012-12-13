@@ -12,9 +12,7 @@ rect = surface.get_rect()
 x_direction = 1
 
 while True:
-  if rect.right > 640:
-    x_direction = x_direction * -1
-  if rect.left < 0:
+  if rect.right > 640 or rect.left < 0:
     x_direction = x_direction * -1
 
   rect = rect.move(x_direction, 0)
