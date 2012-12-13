@@ -9,13 +9,13 @@ surface = pygame.Surface( (10, 10) )
 surface.fill(pygame.Color("red"))
 rect = surface.get_rect()
 
-# neu
 x_direction = 1
 
 while True:
-  # neu
   if rect.right > 640:
     x_direction = -1
+  if rect.left < 0:
+    x_direction = 1
 
   rect = rect.move(x_direction, 0)
   screen.fill((0,0,0))
