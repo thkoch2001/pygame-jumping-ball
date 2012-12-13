@@ -1,26 +1,26 @@
 import pygame
-import sys # fuer sys.exit()
+import sys
 
 pygame.init()
 
 screen = pygame.display.set_mode( (640, 480) )
 
-# neu: surface = Oberflaeche, kann spaeter auch ein Bild sein
 surface = pygame.Surface( (10, 10) )
-surface.fill( pygame.Color("red") )
-
-# neu: Rechteck hat Position und Groesse
+surface.fill(pygame.Color("red"))
 rect = surface.get_rect()
 
+# neu
+x_direction = 1
+
 while True:
-  rect = rect.move( 1, 0 ) # neues, verschobenes Rechteck
+  # neu
+  if rect.right > 640:
+    x_direction = -1
 
-  # Zeichne Oberflaeche in Rechteck
-  screen.blit( surface, rect )
-
-  # aktualisiere Bildschirm
+  rect = rect.move(x_direction, 0)
+  screen.fill((0,0,0))
+  screen.blit(surface, rect)
   pygame.display.flip()
 
-  # neu: Auf Quit event des Fensters reagieren.
   for event in pygame.event.get():
     if event.type == pygame.QUIT: sys.exit()
