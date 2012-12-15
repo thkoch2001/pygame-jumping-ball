@@ -1,6 +1,5 @@
 import pygame
 import sys
-import time
 import random
 
 pygame.init()
@@ -9,11 +8,13 @@ screen = pygame.display.set_mode( (640, 480) )
 
 sound = pygame.mixer.Sound("/usr/share/pyshared/pygame/examples/data/whiff.wav")
 
+clock = pygame.time.Clock()
+
 def randomdirection():
     return random.choice((-1, 1))
 
 def randomspeed():
-    return random.randint(1, 4)
+    return random.randint(2, 5)
 
 class Ball(pygame.sprite.Sprite):
 
@@ -65,4 +66,4 @@ while True:
         elif event.type == pygame.KEYDOWN:
             allsprites.add(Ball(pygame.display.get_surface().get_rect()))
 
-    time.sleep(0.0018)
+    clock.tick(80)
